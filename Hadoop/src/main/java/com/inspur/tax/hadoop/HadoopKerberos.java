@@ -84,9 +84,9 @@ public class HadoopKerberos {
 
 	public static FileSystem init() throws IOException {
 		System.clearProperty("java.security.krb5.conf");
-		// 设置HDAOOP_HOME 环境变量
-		// System.setProperty("hadoop.home.dir",
-		// "/Users/ruijia/Downloads/hadoop-2.6.0");
+		// set hadoop environment  when you coding on windows or other no linux plateform u can try this 
+		  /*System.setProperty("hadoop.home.dir","/Users/ruijia/Downloads/hadoop-2.6.0");
+		  System.setProperty("HADOOP_USER_NAME","hdfs"); */
 
 		Configuration conf = ReadPropertyUtil.getConfiguration();
 
@@ -94,7 +94,7 @@ public class HadoopKerberos {
 
 		if (isUseKerberos) {
 			String hdfsuserInfo = ReadPropertyUtil.readProperty().getProperty("hdfsuserInfo");
-
+			//u can add null exception 
 			String krbStr = Thread.currentThread().getContextClassLoader().getResource("krb5.conf").getFile();
 			String hdfsuserkeytab = Thread.currentThread().getContextClassLoader().getResource("hdfs.headless.keytab")
 					.getFile();
@@ -109,7 +109,7 @@ public class HadoopKerberos {
 		logger.info("FileSystem初始化....");
 
 		FileSystem fs = HdfsUtils.createFileSystem(conf);
-		HdfsUtils.printlist(fs, "/");
+		//HdfsUtils.printlist(fs, "/"); test your Filesystem init
 		return fs;
 	}
 
