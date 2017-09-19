@@ -148,7 +148,7 @@ public class HdfsUtils {
 	 *            HDFS上的路径
 	 * @return boolean status
 	 */
-	public static boolean uploadLocalFileTOHDFS(String localFile, String hdfsFile, FileSystem hdfs) throws IOException {
+	public static boolean uploadLocalFileToHDFS(String localFile, String hdfsFile, FileSystem hdfs) throws IOException {
 		if (StringUtils.isBlank(localFile) || StringUtils.isBlank(hdfsFile)) {
 			return false;
 		}
