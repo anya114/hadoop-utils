@@ -148,7 +148,7 @@ public class HdfsUtils {
 	 *            HDFS上的路径
 	 * @return boolean status
 	 */
-	public static boolean uploadLocalFile2HDFS(String localFile, String hdfsFile, FileSystem hdfs) throws IOException {
+	public static boolean uploadLocalFileTOHDFS(String localFile, String hdfsFile, FileSystem hdfs) throws IOException {
 		if (StringUtils.isBlank(localFile) || StringUtils.isBlank(hdfsFile)) {
 			return false;
 		}
@@ -176,7 +176,7 @@ public class HdfsUtils {
 	 * @param hdfs
 	 *            filesystem 类
 	 */
-	public static boolean uploadFileStream2HDFS(InputStream localFileInputStream, String hdfsFilepath, FileSystem hdfs)
+	public static boolean uploadFileStreamToHDFS(InputStream localFileInputStream, String hdfsFilepath, FileSystem hdfs)
 			throws IOException {
 		boolean result = true;
 
@@ -186,8 +186,8 @@ public class HdfsUtils {
 			IOUtils.copyBytes(localFileInputStream, hdfsFileOutputStream, 1024, true);
 		} catch (IllegalArgumentException e1) {
 			e1.printStackTrace();
-			logger.error("uploadFileStream2HDFSException", e1);
-			throw new IOException("uploadFileStream2HDFSException", e1);
+			logger.error("uploadFileStreamToHDFSException", e1);
+			throw new IOException("uploadFileStreamToHDFSException", e1);
 
 		}
 
