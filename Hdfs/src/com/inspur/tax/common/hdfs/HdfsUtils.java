@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 /**
  * JAVA 操作HDFS公共工具类
  * 
- * @author jiarui
+ * @author Jerry.R
  * @param
  * @date 2017年2月18日下午3:48:56
  */
@@ -83,7 +83,6 @@ public class HdfsUtils {
 		}
 		boolean result = true;
 		if (!fs.exists(new Path(dir))) {
-
 			try {
 				fs.mkdirs(new Path(dir));
 			} catch (IOException e) {
@@ -229,8 +228,6 @@ public class HdfsUtils {
 
 	/**
 	 * HDFS 删除目录下文件
-	 * 
-	 * @author ruijia 2017年2月18日下午3:44:55
 	 * @param hdfsFile
 	 *            FileSystem
 	 * @return boolean
@@ -257,8 +254,6 @@ public class HdfsUtils {
 
 	/**
 	 * HDFS 读取HDFS文件内容
-	 * 
-	 * @author ruijia 2017年2月18日下午3:45:28
 	 * @param hdfsFile
 	 * @return boolean
 	 * @throws Exception
@@ -294,7 +289,6 @@ public class HdfsUtils {
 	/**
 	 * HDFS 在HDFS文件中追加内容
 	 * 
-	 * @author ruijia 2017年2月18日下午3:47:19
 	 * @param hdfsFile
 	 *            需要追加内容的HDFS文件
 	 * @parm 需要追加的具体内容
